@@ -17,15 +17,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<LivenessController>(out LivenessController playerLive))
-        {
-            playerLive.health -= damage;
-            playerLive._healthBar.SetHealth(playerLive.health);
-        }
-    }*/
-
     public void Die(EnemyBehaviour enemy)
     {
         Destroy(enemy.gameObject);
