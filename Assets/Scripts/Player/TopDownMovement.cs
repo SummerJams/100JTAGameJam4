@@ -2,6 +2,8 @@
 
 public class TopDownMovement : MonoBehaviour
 {
+    public static Transform PlayerTransform;
+
     [SerializeField] private float _moveSpeed;
 
     private Rigidbody2D _rigidbody;
@@ -10,6 +12,8 @@ public class TopDownMovement : MonoBehaviour
 
     private void Start()
     {
+        PlayerTransform = transform;
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
