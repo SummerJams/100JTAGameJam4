@@ -772,6 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 10
+  _dust: {fileID: 969707503217710836, guid: 66234798dc44fd24a851b418b7ba14ca, type: 3}
   _dashSpeed: 30
   _dashCooldown: 0.3
   _dashDuration: 0.2

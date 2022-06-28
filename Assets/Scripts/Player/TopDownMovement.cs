@@ -6,6 +6,7 @@ public class TopDownMovement : MonoBehaviour
     public static Transform PlayerTransform;
 
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private ParticleSystem _dust;
     [Header("Dash properties")]
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashCooldown;
@@ -69,6 +70,8 @@ public class TopDownMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
             _timer = _dashCooldown;
+            ParticleSystem dust = Instantiate(_dust, transform);
+            Destroy(dust.gameObject, 1f);
         }
 
         if (!_facingRight && _movement.x < 0)
