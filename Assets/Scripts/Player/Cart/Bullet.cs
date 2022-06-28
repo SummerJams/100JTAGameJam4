@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, 1);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.right, 0.1f);
 
         if (hitInfo)
         {
