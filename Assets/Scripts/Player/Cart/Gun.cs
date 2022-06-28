@@ -3,33 +3,48 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private Transform _gunPosition;
+    [SerializeField] private float _bulletSpeed;
+    [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private Transform _shootPosition;
 
-    private Rigidbody2D _rigidbody;
     private Camera _mainCamera;
     private float _shootRate = 0.2f;
     private float temp;
+    private Vector2 _mousePosition;
 
-    private void Start()
-    {
-        _mainCamera = Camera.main;
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+    private bool _isReadyToShoot => temp > _shootRate;
+
+    private void Start() => _mainCamera = Camera.main;
 
     private void Update()
     {
         FollowCoursor();
+
+        temp += Time.deltaTime;
+        if (Input.GetKey(KeyCode.Mouse0) && _isReadyToShoot)
+        {
+            Shoot();
+            temp = 0;
+        }
     }
 
     private void FollowCoursor()
     {
-        Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector2 mouseDirection = mousePosition - _rigidbody.position;
+        _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mouseDirection = new Vector2(_mousePosition.x - transform.position.x, _mousePosition.y - transform.position.y);
 
         float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
-
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        
+
         transform.position = _gunPosition.position;
+    }
+
+    private void Shoot()
+    {
+        Bullet _bullet = Instantiate(_bulletPrefab);
+        _bullet.transform.position = _shootPosition.position;
+        _bullet.GetComponent<Rigidbody2D>().AddForce(_shootPosition.right * _bulletSpeed, ForceMode2D.Impulse);
+
+        Destroy(_bullet.gameObject, 2f);
     }
 }
