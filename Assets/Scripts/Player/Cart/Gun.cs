@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     private float _shootRate = 0.2f;
     private float temp;
     private Vector2 _mousePosition;
+    private bool _isLookRight = true;
 
     private bool _isReadyToShoot => temp > _shootRate;
 
@@ -35,6 +36,17 @@ public class Gun : MonoBehaviour
 
         float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (angle > 90 || angle < -90 && _isLookRight)
+        {
+            transform.localScale = new Vector3(1, -1, 1);
+            _isLookRight = false;
+        }
+        else if (angle < 90 && angle > -90 && _isLookRight == false)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            _isLookRight = true;
+        }
 
         transform.position = _gunPosition.position;
     }

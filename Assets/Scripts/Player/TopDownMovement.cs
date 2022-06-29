@@ -6,22 +6,25 @@ public class TopDownMovement : MonoBehaviour
     public static Transform PlayerTransform;
 
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private ParticleSystem _dust;
     [Header("Dash properties")]
     [SerializeField] private float _dashSpeed;
-    [SerializeField] private float _dashFrequency;
+    [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashDuration;
-    private float temp;
+    [SerializeField] private TrailRenderer _trail;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector2 _movement;
+    private float _timer;
+    private bool _facingRight = true;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         PlayerTransform = transform;
-        temp = _dashFrequency;
+        _timer = _dashCooldown;
     }
 
     private void Update()
@@ -61,25 +64,41 @@ public class TopDownMovement : MonoBehaviour
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
 
-        temp -= Time.deltaTime;
+        _timer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && temp < 0 && _movement != Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _timer < 0 && _movement != Vector2.zero)
         {
             StartCoroutine(Dash());
-            temp = _dashFrequency;
+            _timer = _dashCooldown;
+            ParticleSystem dust = Instantiate(_dust, transform);
+            Destroy(dust.gameObject, 1f);
+        }
+
+        if (!_facingRight && _movement.x < 0)
+        {
+            Flip();
+        }
+        else if (_facingRight && _movement.x > 0)
+        {
+            Flip();
         }
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() => _rigidbody.MovePosition(_rigidbody.position + _movement.normalized * _moveSpeed * Time.fixedDeltaTime);
+
+    private void Flip()
     {
-        _rigidbody.MovePosition(_rigidbody.position + _movement.normalized * _moveSpeed * Time.fixedDeltaTime);
+        _facingRight = !_facingRight;
+        transform.rotation = Quaternion.Euler(0, _facingRight ? 180f : 0, 0);
     }
 
     private IEnumerator Dash()
     {
-        float temp1 = _moveSpeed;
+        float temp = _moveSpeed;
         _moveSpeed = _dashSpeed;
+        _trail.emitting = true;
         yield return new WaitForSeconds(_dashDuration);
-        _moveSpeed = temp1;
+        _trail.emitting = false;
+        _moveSpeed = temp;
     }
 }

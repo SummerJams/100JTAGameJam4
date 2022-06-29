@@ -2,25 +2,9 @@ using UnityEngine;
 
 public abstract class EnemyBehaviour : MonoBehaviour
 {
-    public abstract float health { get; set; }
     public abstract Rigidbody2D enemyRigidbody { get; }
     public abstract float damage { get; }
     public abstract float speed { get; }
-
-    public void TakeDamage(EnemyBehaviour enemy, float damage)
-    {
-        if (damage >= enemy.health)
-            Die(enemy);
-        else
-        {
-            enemy.health -= damage;
-        }
-    }
-
-    public void Die(EnemyBehaviour enemy)
-    {
-        Destroy(enemy.gameObject);
-    }
 
     public void Walk()
     {
