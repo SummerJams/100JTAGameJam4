@@ -1,8 +1,19 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    private int _damage;
+
+    public int Damage
+    {
+        get { return _damage; }
+        set { 
+            if (value <= 0) 
+                _damage = 1;
+              else 
+                _damage = value;
+        }
+    }
 
     private void Update()
     {
@@ -10,13 +21,12 @@ public class Bullet : MonoBehaviour
 
         if (hitInfo)
         {
-            if (hitInfo.transform.TryGetComponent<Health>(out Health enemy) && 
+            if (hitInfo.transform.TryGetComponent<Health>(out Health enemy) &&
                 hitInfo.transform.TryGetComponent<TopDownMovement>(out TopDownMovement player) == false)
             {
-                enemy.TakeDamage(_damage);
+                enemy.TakeDamage(Damage);
                 Destroy(gameObject);
             }
         }
-
     }
 }

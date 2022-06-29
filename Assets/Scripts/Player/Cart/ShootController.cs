@@ -1,31 +1,28 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public abstract class ShootController : MonoBehaviour
 {
     [SerializeField] private Transform _gunPosition;
-    [SerializeField] private float _bulletSpeed;
-    [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private Transform _shootPosition;
+    [SerializeField] private int _damage;
+    [SerializeField] private Camera _mainCamera;
 
-    private Camera _mainCamera;
     private float _shootRate = 0.2f;
-    private float temp;
+    private float shootTimer;
     private Vector2 _mousePosition;
     private bool _isLookRight = true;
 
-    private bool _isReadyToShoot => temp > _shootRate;
-
-    private void Start() => _mainCamera = Camera.main;
+    private bool _isReadyToShoot => shootTimer > _shootRate;
 
     private void Update()
     {
         FollowCoursor();
 
-        temp += Time.deltaTime;
+        shootTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && _isReadyToShoot)
         {
-            Shoot();
-            temp = 0;
+            Shoot(_shootPosition, _damage);
+            shootTimer = 0;
         }
     }
 
@@ -51,12 +48,5 @@ public class Gun : MonoBehaviour
         transform.position = _gunPosition.position;
     }
 
-    private void Shoot()
-    {
-        Bullet _bullet = Instantiate(_bulletPrefab);
-        _bullet.transform.position = _shootPosition.position;
-        _bullet.GetComponent<Rigidbody2D>().AddForce(_shootPosition.right * _bulletSpeed, ForceMode2D.Impulse);
-
-        Destroy(_bullet.gameObject, 2f);
-    }
+    public abstract void Shoot(Transform shootPosition, int damage);
 }

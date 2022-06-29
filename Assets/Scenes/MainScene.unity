@@ -1156,8 +1156,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374038440}
-  - component: {fileID: 1374038441}
   - component: {fileID: 1374038442}
+  - component: {fileID: 1374038441}
   m_Layer: 0
   m_Name: Gun Body
   m_TagString: Untagged
@@ -1240,13 +1240,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1374038439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a90c93d445f0f943be02724fd2b18b3, type: 3}
+  m_Script: {fileID: 11500000, guid: c906e8b734dc0a746ab2504a84bd8d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _gunPosition: {fileID: 581873758}
-  _bulletSpeed: 6.11
-  _bulletPrefab: {fileID: 483479845416088258, guid: a691e1926aace6241800f146771c46f3, type: 3}
   _shootPosition: {fileID: 13928595}
+  _damage: 20
+  _mainCamera: {fileID: 519420031}
+  _bulletPrefab: {fileID: 6607738259151324530, guid: 2e46b8042ca72664d85ca2a37ec715f3, type: 3}
+  _bulletSpeed: 6
+  _accuracy: 0.5
+  _minBulletsCount: 6
+  _maxBulletsCount: 10
+  _bulletsWorstLifeTime: 0.3
+  _bulletsBestLifeTime: 0.6
 --- !u!1 &1382965031
 GameObject:
   m_ObjectHideFlags: 0
