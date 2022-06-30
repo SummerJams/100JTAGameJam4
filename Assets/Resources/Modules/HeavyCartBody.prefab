@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb85c5078e26094fadda878b024be3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Heavy Cart Body
   _healthFactor: 1
   _speedFactor: 1
 --- !u!212 &605927011953510158

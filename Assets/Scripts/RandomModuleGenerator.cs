@@ -14,10 +14,6 @@ public class RandomModuleGenerator
 
     public GameObject NewCartMoudle()
     {
-        
-        Debug.Log("Massive lenght" + _cartMoudlePrefabs.Length);
-        int Rint = Random.Range(0, _cartMoudlePrefabs.Length - 1);
-        Debug.Log("Index " + Rint);
-        return _cartMoudlePrefabs[Rint];
+        return _cartMoudlePrefabs[Random.Range(0, _cartMoudlePrefabs.Length)];
     }
 }

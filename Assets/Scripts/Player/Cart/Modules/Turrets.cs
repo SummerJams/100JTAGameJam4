@@ -20,4 +20,9 @@ public class Turrets : CartModule
         
         _rateOfFire = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _rateOfFireFactor * _baseRateOfFire * GetWaveFactor());
     }
+    
+    public override float[] GetSpecifications()
+    {
+        return new float[] {Damage, RateOfFire};
+    }
 }

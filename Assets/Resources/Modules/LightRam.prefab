@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b2704e0c6d1d84a9e36a1179e04381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Light Ram
   _damageFactor: 0
   _dashCooldownFactor: 0
 --- !u!212 &1269975289610075910

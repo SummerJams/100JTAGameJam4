@@ -21,4 +21,8 @@ public class Ram : CartModule
         _dashCooldown = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _dashCooldownFactor * _baseCooldown * GetWaveFactor());
     }
     
+    public override float[] GetSpecifications()
+    {
+        return new float[] {Damage, DashCooldown};
+    }
 }

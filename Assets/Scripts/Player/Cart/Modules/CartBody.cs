@@ -20,4 +20,9 @@ public class CartBody : CartModule
         
         _speed = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _speedFactor * _baseSpeed * GetWaveFactor());
     }
+
+    public override float[] GetSpecifications()
+    {
+        return new float[] {Health,  Speed};
+    }
 }
