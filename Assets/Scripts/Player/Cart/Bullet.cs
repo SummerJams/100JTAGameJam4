@@ -17,14 +17,13 @@ public abstract class Bullet : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.right, 0.1f);
+        RaycastHit2D hitedObject = Physics2D.Raycast(transform.position, Vector2.right, 0.1f);
 
-        if (hitInfo)
+        if (hitedObject)
         {
-            if (hitInfo.transform.TryGetComponent<Health>(out Health enemy) &&
-                hitInfo.transform.TryGetComponent<TopDownMovement>(out TopDownMovement player) == false)
+            if (hitedObject.transform.TryGetComponent<Impactable>(out Impactable enemy))
             {
-                enemy.TakeDamage(Damage);
+                enemy.GetComponent<Health>().TakeDamage(Damage);
                 Destroy(gameObject);
             }
         }

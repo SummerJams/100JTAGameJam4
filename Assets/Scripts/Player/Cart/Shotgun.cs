@@ -26,7 +26,6 @@ public class Shotgun : ShootController
             ShotgunBullet bullet = Instantiate(_bulletPrefab);
             bullet.transform.position = new Vector2(shootPosition.position.x, shootPosition.position.y + Random.Range(-_accuracy, _accuracy));
             bullet.Damage = damage;
-            //bullet.GetComponent<Rigidbody2D>().AddForce(shootPosition.right * _bulletSpeed, ForceMode2D.Impulse);
 
             bullet.GetComponent<Rigidbody2D>().AddForce(
                 new Vector2(shootPosition.right.x, shootPosition.right.y + Random.Range(-_accuracy, _accuracy)) *

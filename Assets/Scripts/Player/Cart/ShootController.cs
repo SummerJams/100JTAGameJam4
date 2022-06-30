@@ -2,12 +2,13 @@ using UnityEngine;
 
 public abstract class ShootController : MonoBehaviour
 {
+    [SerializeField] private Camera _mainCamera;
     [SerializeField] private Transform _gunPosition;
     [SerializeField] private Transform _shootPosition;
     [SerializeField] private int _damage;
-    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private float _shootRate = 0.2f;
 
-    private float _shootRate = 0.2f;
+    private float angle;
     private float shootTimer;
     private Vector2 _mousePosition;
     private bool _isLookRight = true;
@@ -21,7 +22,14 @@ public abstract class ShootController : MonoBehaviour
         shootTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && _isReadyToShoot)
         {
-            Shoot(_shootPosition, _damage);
+            if (gameObject.GetComponent<Railgun>())
+            {
+                Shoot(_shootPosition, _damage, angle);
+            }
+            else
+            {
+                Shoot(_shootPosition, _damage);
+            }
             shootTimer = 0;
         }
     }
@@ -31,7 +39,7 @@ public abstract class ShootController : MonoBehaviour
         _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mouseDirection = new Vector2(_mousePosition.x - transform.position.x, _mousePosition.y - transform.position.y);
 
-        float angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
         if (angle > 90 || angle < -90 && _isLookRight)
@@ -48,5 +56,7 @@ public abstract class ShootController : MonoBehaviour
         transform.position = _gunPosition.position;
     }
 
-    public abstract void Shoot(Transform shootPosition, int damage);
+    public virtual void Shoot(Transform shootPosition, int damage) { }
+
+    public virtual void Shoot(Transform shootPosition, int damage, float angle) { }
 }

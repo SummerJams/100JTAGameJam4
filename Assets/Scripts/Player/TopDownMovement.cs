@@ -11,6 +11,7 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashDuration;
+    [SerializeField] private bool _turnOnTrail;
     [SerializeField] private TrailRenderer _trail;
 
     private Rigidbody2D _rigidbody;
@@ -66,9 +67,9 @@ public class TopDownMovement : MonoBehaviour
     {
         float temp = _moveSpeed;
         _moveSpeed = _dashSpeed;
-        _trail.emitting = true;
+        if (_turnOnTrail)_trail.emitting = true;
         yield return new WaitForSeconds(_dashDuration);
-        _trail.emitting = false;
+        if (_turnOnTrail) _trail.emitting = false;
         _moveSpeed = temp;
     }
 }
