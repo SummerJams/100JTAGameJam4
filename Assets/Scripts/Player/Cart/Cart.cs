@@ -13,19 +13,19 @@ public class Cart : MonoBehaviour
     {
         Transform slot;
             
-        switch(newMoudle.GetComponentInChildren<CartMoudle>())
+        switch(newMoudle.GetComponentInChildren<CartModule>())
         {
-            case Ram ram:
+            case Ram _:
             {
                 slot = _ramSlot; 
                 break;
             }
-            case CartBody cartBody:
+            case CartBody _:
             {
                 slot = _cartBodySlot;
                 break;
             }
-            case Turrets turrets:
+            case Turrets _:
             {
                 slot = _turretsSlot;
                 break;
@@ -37,7 +37,7 @@ public class Cart : MonoBehaviour
             }
         }
         
-        Destroy(slot.GetComponentInChildren<CartMoudle>().gameObject);
+        Destroy(slot.GetComponentInChildren<CartModule>().gameObject);
         Instantiate(newMoudle, slot);
     }
     

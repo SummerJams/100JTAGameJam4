@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ram : CartMoudle
+public class Ram : CartModule
 {
     [SerializeField] private float _damageFactor;
     [SerializeField] private float _dashCooldownFactor;
