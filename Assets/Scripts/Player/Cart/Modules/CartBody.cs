@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CartBody : CartModule
+public class CartBody : CartMoudle
 {
     [SerializeField] private float _healthFactor;
     [SerializeField] private float _speedFactor;

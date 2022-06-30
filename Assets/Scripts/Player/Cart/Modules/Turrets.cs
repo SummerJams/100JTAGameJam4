@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Turrets : CartModule
+public class Turrets : CartMoudle
 {
     [SerializeField] private float _damageFactor;
     [SerializeField] private float _rateOfFireFactor;
