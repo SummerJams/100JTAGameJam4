@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class CartMoudle : MonoBehaviour
+public abstract class CartModule : MonoBehaviour
 {
     protected int wave;
 

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 123297dace9d0f0458475422784f035c
+=======
+guid: 7773b016471bfc74a920a508f436ea83
+>>>>>>> parent of 1a2197a (Revert "Add cartMoudles System")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

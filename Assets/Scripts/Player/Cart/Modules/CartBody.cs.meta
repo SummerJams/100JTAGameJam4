@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 71f12d4b75ca8a44f9ed02ebef27fb5b
-=======
-guid: 4ec0399eb2f7a704295f939650e3e749
->>>>>>> parent of 1a2197a (Revert "Add cartMoudles System")
+guid: 5fb85c5078e26094fadda878b024be3f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
