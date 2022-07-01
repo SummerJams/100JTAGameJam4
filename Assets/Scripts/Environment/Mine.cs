@@ -3,6 +3,7 @@ using UnityEngine;
 public class Mine : MonoBehaviour
 {
     [SerializeField] private float _animationTime;
+    [SerializeField] private int _damage;
 
     private Animator _animator;
     private Health _health;
@@ -15,9 +16,17 @@ public class Mine : MonoBehaviour
         _health.Death.AddListener(Explosion);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Explosion();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Health>(out Health health))
+        {
+            health.TakeDamage(_damage);
+        }
     }
 
     private void Explosion()
