@@ -1,17 +1,28 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class CartModule : MonoBehaviour
 {
     protected int Wave;
 
     [SerializeField] private String _name;
+    private float _minRandomFactor = 0.75f;
+    private float _maxRandomFactor = 1.5f;
 
     public String Name => _name;
-    
+
     private void Awake()
     {
-        GenerateSpecifications();
+        if (GetSpecifications()[0] == 0)
+        {
+            GenerateSpecifications();
+        }
+    }
+
+    protected float GetRandomFactor()
+    {
+        return Random.Range(_minRandomFactor, _maxRandomFactor);
     }
 
     public abstract void GenerateSpecifications();

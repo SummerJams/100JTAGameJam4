@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d0b99b0-2ffa-4759-9e96-81ea9d6ea53c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Modules/HeavyCartBody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Modules/HeavyCartBody.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Modules/LightCartBody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Modules/LightCartBody.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Modules/LightRam.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Modules/LightRam.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.100JTAGameJam4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.100JTAGameJam4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/CartBodyModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/CartBodyModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/CartModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/CartModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/RamModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/RamModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/TurretsModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Cart/Modules/TurretsModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RandomModuleGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RandomModuleGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Card.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

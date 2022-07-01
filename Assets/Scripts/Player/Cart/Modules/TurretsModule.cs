@@ -16,9 +16,9 @@ public class TurretsModule : CartModule
     
     public override void GenerateSpecifications()
     {
-        _damage = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _damageFactor * _baseDamage * GetWaveFactor());
+        _damage = Mathf.RoundToInt(GetRandomFactor() * _damageFactor * _baseDamage * GetWaveFactor());
         
-        _rateOfFire = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _rateOfFireFactor * _baseRateOfFire * GetWaveFactor());
+        _rateOfFire = Mathf.RoundToInt(GetRandomFactor() * _rateOfFireFactor * _baseRateOfFire * GetWaveFactor());
     }
     
     public override float[] GetSpecifications()

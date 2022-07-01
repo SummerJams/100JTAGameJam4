@@ -11,14 +11,14 @@ public class RamModule : CartModule
     private int _damage;
     public int Damage => _damage;
 
-    private int _dashCooldown;
-    public int DashCooldown => _dashCooldown;
+    private float _dashCooldown;
+    public float DashCooldown => _dashCooldown;
+    
     
     public override void GenerateSpecifications()
     {
-        _damage = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _damageFactor * _baseDamage * GetWaveFactor());
-        
-        _dashCooldown = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _dashCooldownFactor * _baseCooldown * GetWaveFactor());
+        _damage = Mathf.RoundToInt(GetRandomFactor() * _damageFactor * _baseDamage * GetWaveFactor());
+        _dashCooldown = Mathf.RoundToInt(GetRandomFactor() * _dashCooldownFactor * _baseCooldown * GetWaveFactor());
     }
     
     public override float[] GetSpecifications()

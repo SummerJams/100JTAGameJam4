@@ -14,6 +14,8 @@ public class RandomModuleGenerator
 
     public GameObject NewCartMoudle()
     {
-        return _cartMoudlePrefabs[Random.Range(0, _cartMoudlePrefabs.Length)];
+        GameObject newCartMoudle = _cartMoudlePrefabs[Random.Range(0, _cartMoudlePrefabs.Length)];
+        newCartMoudle.GetComponentInChildren<CartModule>().GenerateSpecifications();
+        return newCartMoudle;
     }
 }

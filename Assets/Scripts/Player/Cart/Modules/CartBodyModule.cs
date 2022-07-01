@@ -13,12 +13,12 @@ public class CartBodyModule : CartModule
 
     private int _speed;
     public int Speed => _speed;
-    
+
     public override void GenerateSpecifications()
     {
-        _health = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _healthFactor * _baseHealth * GetWaveFactor());
+        _health = Mathf.RoundToInt(GetRandomFactor() * _healthFactor * _baseHealth * GetWaveFactor());
         
-        _speed = Mathf.RoundToInt(Random.Range(0.5f, 1.5f) * _speedFactor * _baseSpeed * GetWaveFactor());
+        _speed = Mathf.RoundToInt(GetRandomFactor() * _speedFactor * _baseSpeed * GetWaveFactor());
     }
 
     public override float[] GetSpecifications()

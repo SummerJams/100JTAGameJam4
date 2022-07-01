@@ -1197,6 +1197,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 774928167}
     m_Modifications:
+    - target: {fileID: 4212646854283375776, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212646854283375776, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 4212646855202494445, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1285,5 +1295,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'CardSelectionScreen '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4212646855447062502, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212646855447062502, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4212646855075843910, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}

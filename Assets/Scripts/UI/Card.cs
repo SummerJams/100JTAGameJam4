@@ -31,7 +31,7 @@ public class Card : MonoBehaviour
             case RamModule _:
             {
                 _TMPStats[0].text = "Damage: " + ModuleComponent.GetSpecifications()[0];
-                _TMPStats[1].text = "Dash Cooldown: " + ModuleComponent.GetSpecifications()[1] + "s";
+                _TMPStats[1].text = "Dash Cooldown: " + ModuleComponent.GetSpecifications()[1] + ".s";
                 break;
             }
             case CartBodyModule _:
