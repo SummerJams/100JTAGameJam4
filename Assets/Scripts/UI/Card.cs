@@ -28,19 +28,19 @@ public class Card : MonoBehaviour
             
         switch(ModuleComponent)
         {
-            case Ram _:
+            case RamModule _:
             {
                 _TMPStats[0].text = "Damage: " + ModuleComponent.GetSpecifications()[0];
                 _TMPStats[1].text = "Dash Cooldown: " + ModuleComponent.GetSpecifications()[1] + "s";
                 break;
             }
-            case CartBody _:
+            case CartBodyModule _:
             {
                 _TMPStats[0].text = "Health: " + ModuleComponent.GetSpecifications()[0];
                 _TMPStats[1].text = "Speed: " + ModuleComponent.GetSpecifications()[1];
                 break;
             }
-            case Turrets _:
+            case TurretsModule _:
             {
                 _TMPStats[0].text = "Damage: " + ModuleComponent.GetSpecifications()[0];
                 _TMPStats[1].text = "Rate of Fire: " + ModuleComponent.GetSpecifications()[1];

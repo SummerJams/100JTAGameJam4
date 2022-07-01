@@ -22,9 +22,9 @@ public class StatsPreview : MonoBehaviour
         switch(newModule)
         {
         
-            case Ram _:
+            case RamModule _:
             {
-                float[] defaultModuleSpecifications = _player.GetComponentInChildren<Ram>().GetSpecifications();
+                float[] defaultModuleSpecifications = _player.GetComponentInChildren<RamModule>().GetSpecifications();
             
                 _TMPs[0].text = "Damage: " + "\t" + defaultModuleSpecifications[0] + "\t" + newModuleSpecifications[0];
                 
@@ -49,9 +49,9 @@ public class StatsPreview : MonoBehaviour
                 }
                 break;
             }
-            case CartBody _:
+            case CartBodyModule _:
             {
-                float[] defaultModuleSpecifications = _player.GetComponentInChildren<CartBody>().GetSpecifications();
+                float[] defaultModuleSpecifications = _player.GetComponentInChildren<CartBodyModule>().GetSpecifications();
             
                 _TMPs[0].text = "Health: " + "\t" + defaultModuleSpecifications[0] + "\t" + newModuleSpecifications[0];
                 
@@ -76,10 +76,10 @@ public class StatsPreview : MonoBehaviour
                 }
                 break;
             }
-            case Turrets _:
+            case TurretsModule _:
             {
 
-                float[] defaultModuleSpecifications = _player.GetComponentInChildren<Turrets>().GetSpecifications();
+                float[] defaultModuleSpecifications = _player.GetComponentInChildren<TurretsModule>().GetSpecifications();
             
                 _TMPs[0].text = "Damage: " + "\t" + defaultModuleSpecifications[0] + "\t" + newModuleSpecifications[0];
                 

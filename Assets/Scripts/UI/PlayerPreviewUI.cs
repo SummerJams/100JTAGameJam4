@@ -39,17 +39,17 @@ public class PlayerPreviewUI : MonoBehaviour
     {
         switch (module)
         {
-            case Ram _:
+            case RamModule _:
             {
                 _ramImage.sprite = module.GetComponent<SpriteRenderer>().sprite;
                 break;
             }
-            case CartBody _:
+            case CartBodyModule _:
             {
                 _cartBodyImage.sprite = module.GetComponent<SpriteRenderer>().sprite;
                 break;
             }
-            case Turrets _:
+            case TurretsModule _:
             {
                 _turretsImage.sprite = module.GetComponent<SpriteRenderer>().sprite;
                 break;

@@ -14,17 +14,17 @@ public class Cart : MonoBehaviour
             
         switch(newMoudle.GetComponentInChildren<CartModule>())
         {
-            case Ram _:
+            case RamModule _:
             {
                 slot = _ramSlot; 
                 break;
             }
-            case CartBody _:
+            case CartBodyModule _:
             {
                 slot = _cartBodySlot;
                 break;
             }
-            case Turrets _:
+            case TurretsModule _:
             {
                 slot = _turretsSlot;
                 break;
