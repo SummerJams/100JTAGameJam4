@@ -1,22 +1,31 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public abstract class Bullet : MonoBehaviour
 {
-    [SerializeField] private int _damage;
+    private int _damage;
+
+    public int Damage
+    {
+        get { return _damage; }
+        set { 
+            if (value <= 0) 
+                _damage = 1;
+              else 
+                _damage = value;
+        }
+    }
 
     private void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.right, 0.1f);
+        RaycastHit2D hitedObject = Physics2D.Raycast(transform.position, Vector2.right, 0.1f);
 
-        if (hitInfo)
+        if (hitedObject)
         {
-            if (hitInfo.transform.TryGetComponent<Health>(out Health enemy) && 
-                hitInfo.transform.TryGetComponent<TopDownMovement>(out TopDownMovement player) == false)
+            if (hitedObject.transform.TryGetComponent<Impactable>(out Impactable enemy))
             {
-                enemy.TakeDamage(_damage);
+                enemy.GetComponent<Health>().TakeDamage(Damage);
                 Destroy(gameObject);
             }
         }
-
     }
 }

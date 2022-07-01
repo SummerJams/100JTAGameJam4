@@ -44,3 +44,6 @@ TagManager:
   - name: Player
     uniqueID: 1145964387
     locked: 0
+  - name: Railgun
+    uniqueID: 2389115905
+    locked: 0
