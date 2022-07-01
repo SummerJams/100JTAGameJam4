@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4052931933229098771}
-  - component: {fileID: 4052931933229098768}
+  - component: {fileID: 13817108328835152}
   - component: {fileID: 2228853787613103455}
   m_Layer: 0
   m_Name: Shotgun
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4052931933229098770}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -94,7 +94,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4052931933229098768
+--- !u!114 &13817108328835152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4052931933229098770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e6c570c070992744a5693c88a2e3cee, type: 3}
+  m_Script: {fileID: 11500000, guid: 125edccfc2dd70249bb278f682bcdeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Shotgun
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4052931934489790350}
   - component: {fileID: 4052931934489790351}
-  - component: {fileID: 4052931934489790348}
+  - component: {fileID: 5436478270339225981}
   m_Layer: 0
   m_Name: Turrets Body
   m_TagString: Untagged
@@ -410,7 +410,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4052931934489790348
+--- !u!114 &5436478270339225981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,10 +419,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4052931934489790337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a90c93d445f0f943be02724fd2b18b3, type: 3}
+  m_Script: {fileID: 11500000, guid: c906e8b734dc0a746ab2504a84bd8d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 0}
   _gunPosition: {fileID: 4052931932597608056}
-  _bulletSpeed: 6.11
-  _bulletPrefab: {fileID: 483479845416088258, guid: a691e1926aace6241800f146771c46f3, type: 3}
   _shootPosition: {fileID: 4052931933165545141}
+  _damage: 5
+  _shootRate: 0.2
+  _bulletPrefab: {fileID: 6607738259151324530, guid: 2e46b8042ca72664d85ca2a37ec715f3, type: 3}
+  _bulletSpeed: 7
+  _accuracy: 0.5
+  _minBulletsCount: 5
+  _maxBulletsCount: 8
+  _bulletsWorstLifeTime: 0.8
+  _bulletsBestLifeTime: 1.5

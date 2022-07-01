@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1269975289610075929}
-  - component: {fileID: 1269975289610075911}
+  - component: {fileID: 3974763710387966282}
   - component: {fileID: 1269975289610075910}
   m_Layer: 0
   m_Name: LightRam
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1269975289610075911
+--- !u!114 &3974763710387966282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1269975289610075928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78b2704e0c6d1d84a9e36a1179e04381, type: 3}
+  m_Script: {fileID: 11500000, guid: 56908ffacf4667e4182784355c96ccdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Light Ram
-  _damageFactor: 0
-  _dashCooldownFactor: 0
+  _damageFactor: 0.6
+  _dashCooldownFactor: 2
 --- !u!212 &1269975289610075910
 SpriteRenderer:
   m_ObjectHideFlags: 0
