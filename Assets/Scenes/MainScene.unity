@@ -814,6 +814,11 @@ MonoBehaviour:
   Death:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1292094771 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4052931932597608056, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+  m_PrefabInstance: {fileID: 1931656478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382965031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1052,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _accuracy
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _bulletSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _gunPosition
+      value: 
+      objectReference: {fileID: 1292094771}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 6607738259151324530, guid: 2e46b8042ca72664d85ca2a37ec715f3, type: 3}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _shootPosition
+      value: 
+      objectReference: {fileID: 2045731979}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _maxBulletsCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _minBulletsCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _bulletsBestLifeTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436478270339225981, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+      propertyPath: _bulletsWorstLifeTime
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
 --- !u!4 &1931656479 stripped
@@ -1136,6 +1185,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2045731979 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4052931933165545141, guid: c36e2dfc95c039c418980f7b8285f37c, type: 3}
+  m_PrefabInstance: {fileID: 1931656478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4212646855189057755
 PrefabInstance:
   m_ObjectHideFlags: 0
