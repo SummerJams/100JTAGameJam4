@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Light Ram
   _damageFactor: 0.6
-  _dashCooldownFactor: 2
+  _dashCooldownFactor: 0.6
 --- !u!212 &1269975289610075910
 SpriteRenderer:
   m_ObjectHideFlags: 0

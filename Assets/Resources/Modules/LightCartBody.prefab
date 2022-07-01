@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Light Cart Body
-  _healthFactor: 1
-  _speedFactor: 1
+  _healthFactor: 0.6
+  _speedFactor: 1.8
 --- !u!212 &605927011953510158
 SpriteRenderer:
   m_ObjectHideFlags: 0
