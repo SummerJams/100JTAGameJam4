@@ -6,24 +6,33 @@ public class TopDownMovement : MonoBehaviour
     public static Transform PlayerTransform;
 
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private ParticleSystem _dust;
     [Header("Dash properties")]
+    [SerializeField] private ParticleSystem _dust;
+    [SerializeField] private TrailRenderer _trail;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashCooldown;
     [SerializeField] private float _dashDuration;
     [SerializeField] private bool _turnOnTrail;
-    [SerializeField] private TrailRenderer _trail;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector2 _movement;
+    private Health _health;
     private float _timer;
+    private bool _isAlive;
     private bool _facingRight = true;
+
+    private void Awake()
+    {
+        _health = GetComponent<Health>();
+        _health.Death.AddListener(Death);
+    }
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        
         PlayerTransform = transform;
         _timer = _dashCooldown;
     }
@@ -46,13 +55,9 @@ public class TopDownMovement : MonoBehaviour
         }
 
         if (!_facingRight && _movement.x < 0)
-        {
             Flip();
-        }
         else if (_facingRight && _movement.x > 0)
-        {
             Flip();
-        }
     }
 
     private void FixedUpdate() => _rigidbody.MovePosition(_rigidbody.position + _movement.normalized * _moveSpeed * Time.fixedDeltaTime);
@@ -71,5 +76,11 @@ public class TopDownMovement : MonoBehaviour
         yield return new WaitForSeconds(_dashDuration);
         if (_turnOnTrail) _trail.emitting = false;
         _moveSpeed = temp;
+    }
+
+    private void Death()
+    {
+        _isAlive = false;
+        Debug.Log("YOU DIED");
     }
 }

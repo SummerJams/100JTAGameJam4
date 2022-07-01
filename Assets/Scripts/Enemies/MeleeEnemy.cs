@@ -1,25 +1,50 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Impactable))]
 public class MeleeEnemy : EnemyBehaviour
 {
-    [SerializeField] private float _speed = 1f;
-    [SerializeField] private float _damage = 1f;
+    [SerializeField] private float _speed;
+    [SerializeField] private int _damage;
+    [SerializeField] private float _attackTime;
+    [SerializeField] private float _deathTime;
+    [SerializeField] private float _attackDistance;
+    [SerializeField] private float _timeBetweenAttacks;
+    [SerializeField] private Transform _rightPlayerSide;
+    [SerializeField] private Transform _leftPlayerSide;
 
     private Rigidbody2D _rigidbody2D;
     private Health _health;
+    private Animator _animator;
+    private SpriteRenderer _sprite;
+    private bool _wasDamaged;
+
+    public bool wasDamaged { get => _wasDamaged; set => _wasDamaged = value; }
 
     public override Rigidbody2D enemyRigidbody => _rigidbody2D;
-    public override float damage => _damage;
+    public override Animator animator => _animator;
+    public override SpriteRenderer sprite => _sprite;
+    public override Health health => _health;
+    public override Transform rightPlayerSide => _rightPlayerSide;
+    public override Transform leftPlayerSide => _leftPlayerSide;
     public override float speed => _speed;
+    public override int damage => _damage;
+    public override float attackTime => _attackTime;
+    public override float deathTime => _deathTime;
+    public override float attackDistance => _attackDistance;
+    public override float timeBetweenAttacks => _timeBetweenAttacks;
 
-    private void Start()
+    private void Awake()
     {
+        _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _health = GetComponent<Health>();
-        _health.Death.AddListener(Death);
+        _sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void Update() => Walk();
-
-    private void Death() => Destroy(gameObject);
+    private void Update() 
+    {
+        ChasePlayer();
+        
+        if (_wasDamaged) StartCoroutine(WasDamaged()); // опнбепхрэ пюанрюер кх щрнр лернд, хкх нм пюанрюер рнкэйн опх ялепрх б яйпхоре онбедемхъ бпюцнб
+    }
 }
