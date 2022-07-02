@@ -3,12 +3,13 @@ using UnityEngine;
 
 public abstract class ShootController : MonoBehaviour
 {
-    [SerializeField] private Camera _mainCamera;
     [SerializeField] private Transform _gunPosition;
     [SerializeField] private Transform _shootPosition;
+    [SerializeField] private AudioSource _shootSound;
     [SerializeField] private int _damage;
     [SerializeField] private float _shootRate = 0.2f;
 
+    private Camera _mainCamera;
     private float angle;
     private float shootTimer;
     private Vector2 _mousePosition;
@@ -16,10 +17,7 @@ public abstract class ShootController : MonoBehaviour
 
     private bool _isReadyToShoot => shootTimer > _shootRate;
 
-    private void Awake()
-    {
-        _mainCamera = Camera.main;
-    }
+    private void Awake() => _mainCamera = Camera.main;
 
     private void Update()
     {
@@ -30,11 +28,15 @@ public abstract class ShootController : MonoBehaviour
         {
             if (gameObject.GetComponent<Railgun>())
             {
-                Shoot(_shootPosition, _damage, angle);
+                Shoot(_shootPosition, _shootSound, _damage, angle); ;
+            }
+            else if (gameObject.GetComponent<MachineGun>())
+            {
+                Shoot(_shootSound, _damage);
             }
             else
             {
-                Shoot(_shootPosition, _damage);
+                Shoot(_shootPosition, _shootSound, _damage);
             }
             shootTimer = 0;
         }
@@ -62,7 +64,9 @@ public abstract class ShootController : MonoBehaviour
         transform.position = _gunPosition.position;
     }
 
-    public virtual void Shoot(Transform shootPosition, int damage) { }
+    public virtual void Shoot(Transform shootPosition, AudioSource shootSound, int damage) { }
 
-    public virtual void Shoot(Transform shootPosition, int damage, float angle) { }
+    public virtual void Shoot(Transform shootPosition, AudioSource shootSound, int damage, float angle) { }
+
+    public virtual void Shoot(AudioSource shootSound, int damage) { }
 }
