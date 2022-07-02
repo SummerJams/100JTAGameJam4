@@ -8,19 +8,17 @@ public class MeleeEnemy : EnemyBehaviour
     [SerializeField] private float _attackTime;
     [SerializeField] private float _deathTime;
     [SerializeField] private float _attackDistance;
+    [SerializeField] private float _distanceToPlayerFromSides;
     [SerializeField] private float _timeBetweenAttacks;
     [SerializeField] private Transform _rightPlayerSide;
     [SerializeField] private Transform _leftPlayerSide;
 
-    private Rigidbody2D _rigidbody2D;
+    private Rigidbody2D _rigidbody;
     private Health _health;
     private Animator _animator;
     private SpriteRenderer _sprite;
-    private bool _wasDamaged;
 
-    public bool wasDamaged { get => _wasDamaged; set => _wasDamaged = value; }
-
-    public override Rigidbody2D enemyRigidbody => _rigidbody2D;
+    public override Rigidbody2D enemyRigidbody => _rigidbody;
     public override Animator animator => _animator;
     public override SpriteRenderer sprite => _sprite;
     public override Health health => _health;
@@ -32,19 +30,15 @@ public class MeleeEnemy : EnemyBehaviour
     public override float deathTime => _deathTime;
     public override float attackDistance => _attackDistance;
     public override float timeBetweenAttacks => _timeBetweenAttacks;
+    public override float distanceToPlayerFromSides => _distanceToPlayerFromSides;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
         _health = GetComponent<Health>();
         _sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void Update() 
-    {
-        ChasePlayer();
-        
-        if (_wasDamaged) StartCoroutine(WasDamaged()); // ÏÐÎÂÅÐÈÒÜ ÐÀÁÎÒÀÅÒ ËÈ ÝÒÎÒ ÌÅÒÎÄ, ÈËÈ ÎÍ ÐÀÁÎÒÀÅÒ ÒÎËÜÊÎ ÏÐÈ ÑÌÅÐÒÈ Â ÑÊÐÈÏÒÅ ÏÎÂÅÄÅÍÈß ÂÐÀÃÎÂ
-    }
+    private void Update() => ChasePlayer();
 }

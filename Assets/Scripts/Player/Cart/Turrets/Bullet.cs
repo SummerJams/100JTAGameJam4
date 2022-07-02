@@ -10,7 +10,7 @@ public abstract class Bullet : MonoBehaviour
         set { 
             if (value <= 0) 
                 _damage = 1;
-              else 
+            else 
                 _damage = value;
         }
     }
@@ -23,7 +23,9 @@ public abstract class Bullet : MonoBehaviour
         {
             if (hitedObject.transform.TryGetComponent<Impactable>(out Impactable enemy))
             {
-                enemy.GetComponent<Health>().TakeDamage(Damage);
+                Health enemyHealth = enemy.GetComponent<Health>();
+                enemyHealth.TakeDamage(Damage);
+                enemyHealth.Damaged.Invoke();
                 Destroy(gameObject);
             }
         }

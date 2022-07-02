@@ -27,7 +27,9 @@ public class RailgunBullet : MonoBehaviour
             {
                 if (hitedObjects[i].transform.TryGetComponent<Impactable>(out Impactable enemy))
                 {
-                    enemy.GetComponent<Health>().TakeDamage(Damage);
+                    Health enemyHealth = enemy.GetComponent<Health>();
+                    enemyHealth.TakeDamage(Damage);
+                    enemyHealth.Damaged.Invoke();
                 }
             }
         }

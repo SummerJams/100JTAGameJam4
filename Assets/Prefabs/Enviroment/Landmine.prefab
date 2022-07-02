@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4084098593048710926}
   - component: {fileID: 4126137082890915857}
   m_Layer: 0
-  m_Name: Mine
+  m_Name: Landmine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
