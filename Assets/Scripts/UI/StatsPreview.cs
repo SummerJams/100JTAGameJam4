@@ -37,7 +37,7 @@ public class StatsPreview : MonoBehaviour
                     _TMPs[0].color = _negativeColor;
                 }
                 
-                _TMPs[1].text = "Dash Cooldown: " + "\t" + defaultModuleSpecifications[1] + ".s" + "\t" + newModuleSpecifications[1] + ".s";
+                _TMPs[1].text = "Dash CD: " + "\t" + defaultModuleSpecifications[1] + ".s" + "\t" + newModuleSpecifications[1] + ".s";
                 
                 if (defaultModuleSpecifications[1] > newModuleSpecifications[1])
                 {
@@ -92,7 +92,7 @@ public class StatsPreview : MonoBehaviour
                     _TMPs[0].color = _negativeColor;
                 }
                 
-                _TMPs[1].text = "Rate of Fire: " + "\t" + defaultModuleSpecifications[1] + "\t" + newModuleSpecifications[1];
+                _TMPs[1].text = "ROF:      " + "\t" + defaultModuleSpecifications[1] + "\t" + newModuleSpecifications[1];
                 
                 if (defaultModuleSpecifications[1] < newModuleSpecifications[1])
                 {

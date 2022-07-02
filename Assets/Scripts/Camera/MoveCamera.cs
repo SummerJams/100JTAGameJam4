@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
@@ -41,6 +39,7 @@ public class MoveCamera : MonoBehaviour
             posY = -downEdge + scaleCameraY;
         else
             posY = target.position.y;
+        
         transform.position = new Vector3(posX, posY, transform.position.z);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class ShootController : MonoBehaviour
@@ -14,6 +15,11 @@ public abstract class ShootController : MonoBehaviour
     private bool _isLookRight = true;
 
     private bool _isReadyToShoot => shootTimer > _shootRate;
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main;
+    }
 
     private void Update()
     {

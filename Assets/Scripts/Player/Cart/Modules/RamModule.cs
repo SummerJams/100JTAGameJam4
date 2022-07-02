@@ -10,7 +10,7 @@ public class RamModule : CartModule
     
     private int _damage;
     public int Damage => _damage;
-
+    
     private float _dashCooldown;
     public float DashCooldown => _dashCooldown;
     
