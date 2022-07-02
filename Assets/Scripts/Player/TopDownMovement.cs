@@ -5,6 +5,7 @@ public class TopDownMovement : MonoBehaviour
 {
     public static Transform PlayerTransform;
 
+    [SerializeField] private Transform _centerOfThePlayer;
     [SerializeField] private float _moveSpeed;
     [Header("Dash properties")]
     [SerializeField] private ParticleSystem _dust;
@@ -19,7 +20,7 @@ public class TopDownMovement : MonoBehaviour
     private Vector2 _movement;
     private Health _health;
     private float _timer;
-    private bool _isAlive;
+    private bool _isAlive = true;
     private bool _facingRight = true;
 
     private void Awake()
@@ -33,7 +34,7 @@ public class TopDownMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         
-        PlayerTransform = transform;
+        PlayerTransform = _centerOfThePlayer;
         _timer = _dashCooldown;
     }
 

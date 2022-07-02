@@ -82,7 +82,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 21
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -202,10 +202,10 @@ TextureImporter:
       name: Attack_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 44
-        width: 45
-        height: 50
+        x: 51
+        y: 49
+        width: 50
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 199
-        y: 47
+        y: 49
         width: 50
         height: 45
       alignment: 0
@@ -244,8 +244,8 @@ TextureImporter:
       name: Attack_2
       rect:
         serializedVersion: 2
-        x: 343
-        y: 48
+        x: 345
+        y: 49
         width: 50
         height: 45
       alignment: 0
@@ -265,8 +265,8 @@ TextureImporter:
       name: Attack_3
       rect:
         serializedVersion: 2
-        x: 493
-        y: 48
+        x: 495
+        y: 49
         width: 50
         height: 45
       alignment: 0
@@ -287,7 +287,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 645
-        y: 48
+        y: 49
         width: 50
         height: 45
       alignment: 0
@@ -307,7 +307,7 @@ TextureImporter:
       name: Attack_5
       rect:
         serializedVersion: 2
-        x: 795
+        x: 797
         y: 49
         width: 50
         height: 45
@@ -328,9 +328,9 @@ TextureImporter:
       name: Attack_6
       rect:
         serializedVersion: 2
-        x: 956
+        x: 946
         y: 49
-        width: 50
+        width: 60
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -349,9 +349,9 @@ TextureImporter:
       name: Attack_7
       rect:
         serializedVersion: 2
-        x: 1114
+        x: 1086
         y: 49
-        width: 50
+        width: 80
         height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

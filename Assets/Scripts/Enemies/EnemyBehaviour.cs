@@ -9,47 +9,46 @@ public abstract class EnemyBehaviour : MonoBehaviour
     public abstract SpriteRenderer sprite { get; }
     public abstract Transform rightPlayerSide { get; }
     public abstract Transform leftPlayerSide { get; }
-    public abstract float speed { get; }
     public abstract int damage { get; }
+    public abstract float speed { get; }
     public abstract float attackTime { get; }
     public abstract float deathTime { get; }
     public abstract float attackDistance { get; }
     public abstract float timeBetweenAttacks { get; }
+    public abstract float distanceToPlayerFromSides { get; }
 
     private float _currentDistanceToPlayer;
     private float _rightSideDistance;
     private float _leftSideDistance;
-    private float _smallDistanceToPlayer = 1f;
     private bool _readyToAttack;
     private bool _isDied;
     private bool _isAttacking;
     private bool _isRightSideCloser;
     private bool _isEnemyCloseToPlayer;
 
-    private void Start() => health.Death.AddListener(Death);
+    private void Start()
+    {
+        health.Death.AddListener(Death);
+        health.Damaged.AddListener(WasDamagedHandler);
+    }
 
     private IEnumerator Attack()
     {
         animator.SetBool("isRunning", false);
         animator.SetBool("isAttacking", true);
         _isAttacking = true;
+        enemyRigidbody.isKinematic = true;
         yield return new WaitForSeconds(attackTime);
         animator.SetBool("isAttacking", false);
         yield return new WaitForSeconds(timeBetweenAttacks);
         _isAttacking = false;
+        enemyRigidbody.isKinematic = false;
     }
 
-    protected IEnumerator WasDamaged()
+    private void Death()
     {
-        sprite.color = new Color(255, 0, 0);
-        yield return new WaitForSeconds(.1f);
-        sprite.color = Color.white;
-    }
-
-    protected void Death()
-    {
-        StartCoroutine(WasDamaged());
         animator.SetBool("isRunning", false);
+        animator.SetBool("isAttacking", false);
         _isDied = true;
         animator.SetBool("isDied", true);
         Destroy(gameObject, deathTime);
@@ -61,18 +60,18 @@ public abstract class EnemyBehaviour : MonoBehaviour
         _leftSideDistance = Vector2.Distance(transform.position, leftPlayerSide.position);
 
         _isRightSideCloser = _rightSideDistance < _leftSideDistance;
-        _isEnemyCloseToPlayer = _isRightSideCloser ? _rightSideDistance <= _smallDistanceToPlayer : _leftSideDistance <= _smallDistanceToPlayer;
+        _isEnemyCloseToPlayer = _isRightSideCloser ? _rightSideDistance <= distanceToPlayerFromSides : _leftSideDistance <= distanceToPlayerFromSides;
 
         _currentDistanceToPlayer = Vector2.Distance(transform.position, TopDownMovement.PlayerTransform.position);
         _readyToAttack = _currentDistanceToPlayer <= attackDistance;
 
-        if (_isAttacking == false)
+        if (_isAttacking == false && _isDied == false)
         {
             if (_readyToAttack)
             {
                 StartCoroutine(Attack());
             }
-            else if (_isDied == false)
+            else
             {
                 Flip();
                 animator.SetBool("isRunning", true);
@@ -88,6 +87,15 @@ public abstract class EnemyBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void WasDamagedHandler() => StartCoroutine(WasDamaged());
+
+    private IEnumerator WasDamaged()
+    {
+        sprite.color = new Color(255, 0, 0);
+        yield return new WaitForSeconds(.1f);
+        sprite.color = Color.white;
     }
 
     private void Flip()
