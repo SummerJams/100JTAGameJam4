@@ -1397,7 +1397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: 247}
+  m_AnchoredPosition: {x: -216, y: 247}
   m_SizeDelta: {x: 754.4786, y: 199.0361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7907955914812489619
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The wave is over. Choose a new module
+  m_text: Choose a new module
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a861977d431d1a34696611a0bc95a6b6, type: 2}
   m_sharedMaterial: {fileID: 6354359018352787316, guid: a861977d431d1a34696611a0bc95a6b6, type: 2}
