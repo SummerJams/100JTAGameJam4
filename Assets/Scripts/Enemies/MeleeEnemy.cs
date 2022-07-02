@@ -10,9 +10,9 @@ public class MeleeEnemy : EnemyBehaviour
     [SerializeField] private float _attackDistance;
     [SerializeField] private float _distanceToPlayerFromSides;
     [SerializeField] private float _timeBetweenAttacks;
-    [SerializeField] private Transform _rightPlayerSide;
-    [SerializeField] private Transform _leftPlayerSide;
 
+    private Transform _rightPlayerSide;
+    private Transform _leftPlayerSide;
     private Rigidbody2D _rigidbody;
     private Health _health;
     private Animator _animator;
@@ -32,8 +32,11 @@ public class MeleeEnemy : EnemyBehaviour
     public override float timeBetweenAttacks => _timeBetweenAttacks;
     public override float distanceToPlayerFromSides => _distanceToPlayerFromSides;
 
-    private void Awake()
+    private void Start()
     {
+        _rightPlayerSide = TopDownMovement.PlayerRightSideTransform;
+        _leftPlayerSide = TopDownMovement.PlayerRightSideTransform;
+
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _health = GetComponent<Health>();

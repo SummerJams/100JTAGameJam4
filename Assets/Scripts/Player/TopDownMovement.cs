@@ -3,9 +3,13 @@ using System.Collections;
 
 public class TopDownMovement : MonoBehaviour
 {
-    public static Transform PlayerTransform;
+    public static Transform PlayerCentralTransform;
+    public static Transform PlayerLeftSideTransform;
+    public static Transform PlayerRightSideTransform;
 
     [SerializeField] private Transform _centerOfThePlayer;
+    [SerializeField] private Transform _leftSideOfPlayer;
+    [SerializeField] private Transform _rightSideOfPlayer;
     [SerializeField] private float _moveSpeed;
     [Header("Dash properties")]
     [SerializeField] private ParticleSystem _dust;
@@ -25,6 +29,10 @@ public class TopDownMovement : MonoBehaviour
 
     private void Awake()
     {
+        PlayerCentralTransform = _centerOfThePlayer;
+        PlayerLeftSideTransform = _leftSideOfPlayer;
+        PlayerRightSideTransform = _rightSideOfPlayer;
+
         _health = GetComponent<Health>();
         _health.Death.AddListener(Death);
     }
@@ -33,8 +41,6 @@ public class TopDownMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        
-        PlayerTransform = _centerOfThePlayer;
         _timer = _dashCooldown;
     }
 

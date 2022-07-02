@@ -160,7 +160,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: 0ab72a607f73cb34c9dd9a5932a5050b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -256,8 +256,6 @@ MonoBehaviour:
   _attackDistance: 2.5
   _distanceToPlayerFromSides: 1.5
   _timeBetweenAttacks: 1
-  _rightPlayerSide: {fileID: 0}
-  _leftPlayerSide: {fileID: 0}
 --- !u!114 &6779916833465151630
 MonoBehaviour:
   m_ObjectHideFlags: 0

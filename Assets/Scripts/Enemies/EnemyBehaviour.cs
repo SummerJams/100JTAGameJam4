@@ -62,7 +62,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
         _isRightSideCloser = _rightSideDistance < _leftSideDistance;
         _isEnemyCloseToPlayer = _isRightSideCloser ? _rightSideDistance <= distanceToPlayerFromSides : _leftSideDistance <= distanceToPlayerFromSides;
 
-        _currentDistanceToPlayer = Vector2.Distance(transform.position, TopDownMovement.PlayerTransform.position);
+        _currentDistanceToPlayer = Vector2.Distance(transform.position, TopDownMovement.PlayerCentralTransform.position);
         _readyToAttack = _currentDistanceToPlayer <= attackDistance;
 
         if (_isAttacking == false && _isDied == false)
@@ -78,7 +78,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
                 if (_isEnemyCloseToPlayer)
                 {
-                    enemyRigidbody.MovePosition(enemyRigidbody.position + PlayerDirection(transform.position, TopDownMovement.PlayerTransform.position, speed) * Time.deltaTime);
+                    enemyRigidbody.MovePosition(enemyRigidbody.position + PlayerDirection(transform.position, TopDownMovement.PlayerCentralTransform.position, speed) * Time.deltaTime);
                 }
                 else
                 {
@@ -100,7 +100,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
 
     private void Flip()
     {
-        if (TopDownMovement.PlayerTransform.position.x < transform.position.x)
+        if (TopDownMovement.PlayerCentralTransform.position.x < transform.position.x)
             transform.localScale = new Vector3(-1, 1, 1);
         else
             transform.localScale = new Vector3(1, 1, 1);
