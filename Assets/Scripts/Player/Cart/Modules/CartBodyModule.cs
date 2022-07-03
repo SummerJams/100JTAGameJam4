@@ -25,4 +25,9 @@ public class CartBodyModule : CartModule
     {
         return new float[] {Health,  Speed};
     }
+
+    public override void ApplyScecifications()
+    {
+        GetComponentInParent<Health>().MaxHealth = _health;
+    }
 }

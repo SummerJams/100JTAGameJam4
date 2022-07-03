@@ -5,7 +5,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
 {
     public abstract Rigidbody2D enemyRigidbody { get; }
     public abstract Animator animator { get; }
-    public abstract Health health { get; }
     public abstract SpriteRenderer sprite { get; }
     public abstract Transform rightPlayerSide { get; }
     public abstract Transform leftPlayerSide { get; }
@@ -26,12 +25,6 @@ public abstract class EnemyBehaviour : MonoBehaviour
     private bool _isRightSideCloser;
     private bool _isEnemyCloseToPlayer;
 
-    private void Start()
-    {
-        health.Death.AddListener(Death);
-        health.Damaged.AddListener(WasDamagedHandler);
-    }
-
     private IEnumerator Attack()
     {
         animator.SetBool("isRunning", false);
@@ -45,7 +38,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
         enemyRigidbody.isKinematic = false;
     }
 
-    private void Death()
+    protected void Death()
     {
         animator.SetBool("isRunning", false);
         animator.SetBool("isAttacking", false);
@@ -89,7 +82,7 @@ public abstract class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    private void WasDamagedHandler() => StartCoroutine(WasDamaged());
+    protected void WasDamagedHandler() => StartCoroutine(WasDamaged());
 
     private IEnumerator WasDamaged()
     {

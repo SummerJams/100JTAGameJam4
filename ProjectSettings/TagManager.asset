@@ -41,11 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 1145964387
-    locked: 0
   - name: Environment
     uniqueID: 4142650521
+    locked: 0
+  - name: Player
+    uniqueID: 1145964387
     locked: 0
   - name: Enemy
     uniqueID: 2421250853

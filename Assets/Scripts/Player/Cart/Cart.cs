@@ -11,7 +11,7 @@ public class Cart : MonoBehaviour
     public void SwitchModule(GameObject newMoudle)
     {
         Transform slot;
-            
+        
         switch(newMoudle.GetComponentInChildren<CartModule>())
         {
             case RamModule _:
@@ -39,8 +39,6 @@ public class Cart : MonoBehaviour
         Destroy(slot.GetComponentInChildren<CartModule>().gameObject);
         Instantiate(newMoudle, slot);
     }
-    
-    
     
     // private GameObject _ramMoudle;
     //
