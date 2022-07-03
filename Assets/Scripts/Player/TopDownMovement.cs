@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TopDownMovement : MonoBehaviour
 {
@@ -21,14 +22,20 @@ public class TopDownMovement : MonoBehaviour
     private Vector2 _movement;
     private Health _health;
     private float _dashTimer;
+    private float _dashSpeed = 15;
     private bool _isAlive = true;
     private bool _facingRight = true;
-    private float _dashSpeed;
 
     public float moveSpeed
     {
         get => _moveSpeed;
         set { if (value > 0) _moveSpeed = value; }
+    }
+
+    public float dashSpeed
+    {
+        get => _moveSpeed;
+        set { if (value > 0) _dashSpeed = value; }
     }
 
     private void Awake()
@@ -79,7 +86,6 @@ public class TopDownMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         float temp = _moveSpeed;
-        _dashSpeed = _moveSpeed * 3;
         _moveSpeed = _dashSpeed;
         _ram.IsDashing = true;
         _trailEffect.emitting = true;
@@ -92,6 +98,6 @@ public class TopDownMovement : MonoBehaviour
     private void Death()
     {
         _isAlive = false;
-        Debug.Log("YOU DIED");
+        SceneManager.LoadScene(0);
     }
 }

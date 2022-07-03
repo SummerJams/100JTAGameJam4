@@ -3564,6 +3564,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 951254156}
+  - component: {fileID: 951254157}
+  - component: {fileID: 951254158}
   m_Layer: 0
   m_Name: RamSlot
   m_TagString: Untagged
@@ -3586,6 +3588,47 @@ Transform:
   m_Father: {fileID: 1382965032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951254157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951254155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044e4051d0aaf794cb3e7931bc69714e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashCooldown: 0
+  DashDamage: 0
+  IsDashing: 0
+--- !u!61 &951254158
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951254155}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08054638, y: -0.025777757}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.83890724, y: 0.8109633}
+  m_EdgeRadius: 0
 --- !u!1 &983652087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,7 +3666,7 @@ MonoBehaviour:
   _leftSideOfPlayer: {fileID: 2098248738}
   _rightSideOfPlayer: {fileID: 824169826}
   _moveSpeed: 5
-  _trailEffect: {fileID: 0}
+  _trailEffect: {fileID: 9132719892519758098, guid: 35f20a10840527c45888609cc7ce25e7, type: 3}
   _dashDuration: 0.1
   _ram: {fileID: 0}
 --- !u!4 &983652089
