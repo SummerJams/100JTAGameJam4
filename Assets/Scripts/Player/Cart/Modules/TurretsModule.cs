@@ -25,4 +25,9 @@ public class TurretsModule : CartModule
     {
         return new float[] {Damage, RateOfFire};
     }
+
+    public override void ApplyScecifications()
+    {
+        throw new System.NotImplementedException();
+    }
 }

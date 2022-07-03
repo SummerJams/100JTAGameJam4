@@ -25,4 +25,9 @@ public class RamModule : CartModule
     {
         return new float[] {Damage, DashCooldown};
     }
+
+    public override void ApplyScecifications()
+    {
+        throw new System.NotImplementedException();
+    }
 }

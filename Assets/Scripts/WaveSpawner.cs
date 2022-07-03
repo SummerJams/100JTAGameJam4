@@ -19,12 +19,13 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject _CardSelectionScreenPrefab;
     [SerializeField] private Transform _CardSelectionScreenParent;
     [SerializeField] private GameObject _CardSelectionScreen;
+    [SerializeField] private bool _CardSelectionScreenCreate;
     private Card[] _cards;
     
     private int _currWave = 1;
     private int _waveValue;
     private List<GameObject> _enemiesToSpawn = new List<GameObject>();
-    private List<GameObject> _livingEnemies = new List<GameObject>();
+    private int _livingEnemiesCounter;
     
     
     private float _spawnTimer;
@@ -36,6 +37,8 @@ public class WaveSpawner : MonoBehaviour
     
     void FixedUpdate()
     {
+        Debug.Log("else " + _livingEnemiesCounter);
+        
         if(_spawnTimer <=0)
         {
             if(_enemiesToSpawn.Count >0)
@@ -43,17 +46,20 @@ public class WaveSpawner : MonoBehaviour
                 Debug.Log("Spawn enemy " + _enemiesToSpawn[0]);
                 GameObject newEnemy = Instantiate(_enemiesToSpawn[0], _spawnLocation.position, Quaternion.identity,_enemyParent);
                 newEnemy.GetComponentInChildren<Health>().Death.AddListener(RemoveOneEnemie);
-                _livingEnemies.Add(newEnemy);
                 _enemiesToSpawn.RemoveAt(0);
                 _spawnTimer = _spawnInterval;
             }
             else
             {
-                Debug.Log("else " + _livingEnemies.Count);
-                if (_livingEnemies.Count <= 0)
+               
+                if (_livingEnemiesCounter <= 0)
                 {
                     WaveEnd.Invoke();
-                    _CardSelectionScreen = Instantiate(_CardSelectionScreenPrefab, _CardSelectionScreenParent);
+                    if (!_CardSelectionScreenCreate)
+                    {
+                        _CardSelectionScreen = Instantiate(_CardSelectionScreenPrefab, _CardSelectionScreenParent);
+                        _CardSelectionScreenCreate = true;
+                    }
                     Debug.Log("Instantiate");
                     _cards = _CardSelectionScreen.GetComponentsInChildren<Card>();
                     foreach (var card in _cards)
@@ -73,6 +79,7 @@ public class WaveSpawner : MonoBehaviour
  
     public void StartNextWave()
     {
+        _CardSelectionScreenCreate = false;
         _waveValue = Mathf.RoundToInt(3 * (1 + (0.2f * _currWave))) ;
         GenerateEnemies();
         WaveStart.Invoke(_currWave);
@@ -80,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void RemoveOneEnemie()
     {
-        
+        _livingEnemiesCounter -= 1;
     }
     
     public void GenerateEnemies()
@@ -103,6 +110,7 @@ public class WaveSpawner : MonoBehaviour
             }
         }
         _enemiesToSpawn.Clear();
+        _livingEnemiesCounter = generatedEnemies.Count;
         _enemiesToSpawn = generatedEnemies;
     }
   

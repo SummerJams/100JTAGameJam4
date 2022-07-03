@@ -7,6 +7,8 @@ public class Health : MonoBehaviour
 
     private int _health;
 
+    public int HealthProperty => _health;
+
     public int MaxHealth
     {
         get => _maxHealth;
@@ -15,6 +17,7 @@ public class Health : MonoBehaviour
 
     public UnityEvent Death = new UnityEvent();
     public UnityEvent Damaged = new UnityEvent();
+    private bool isAlive = true;
 
     private void Awake() => _health = _maxHealth;
 
@@ -22,7 +25,18 @@ public class Health : MonoBehaviour
     {
         _health -= damage;
 
-        if (_health <= 0)   Death.Invoke();
-        else    Damaged.Invoke();
+        if (_health <= 0)
+        {
+            if (isAlive)
+            {
+                Death.Invoke();
+                isAlive = false;
+            }
+            
+        }
+        else
+        {
+            Damaged.Invoke();
+        }
     }
 }
