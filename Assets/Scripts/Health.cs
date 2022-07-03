@@ -7,11 +7,7 @@ public class Health : MonoBehaviour
 
     private int _health;
 
-    public int MaxHealth
-    {
-        get => _maxHealth;
-        set { if (value > 0) _maxHealth = value; }
-    }
+    public int MaxHealth { get => _maxHealth; set { if (value > 0) _maxHealth = value; } }
 
     public UnityEvent Death = new UnityEvent();
     public UnityEvent Damaged = new UnityEvent();

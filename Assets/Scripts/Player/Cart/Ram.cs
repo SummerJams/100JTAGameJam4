@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class Ram : MonoBehaviour
 {
-    public float DashCooldown;
-    public int DashDamage;
+    [HideInInspector] public float DashCooldown;
+    [HideInInspector] public int DashDamage;
+    [HideInInspector] public bool IsDashing;
 
-    public bool IsDashing;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (IsDashing && collision.TryGetComponent<Impactable>(out Impactable enemy))
+        if (IsDashing && collision.gameObject.TryGetComponent<Impactable>(out Impactable enemy))
         {
             enemy.GetComponent<Health>().TakeDamage(DashDamage);
         }

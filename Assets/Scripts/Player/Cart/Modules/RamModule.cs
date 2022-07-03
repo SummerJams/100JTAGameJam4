@@ -14,7 +14,6 @@ public class RamModule : CartModule
     private float _dashCooldown;
     public float DashCooldown => _dashCooldown;
     
-    
     public override void GenerateSpecifications()
     {
         _damage = Mathf.RoundToInt(GetRandomFactor() * _damageFactor * _baseDamage * GetWaveFactor());
@@ -24,5 +23,11 @@ public class RamModule : CartModule
     public override float[] GetSpecifications()
     {
         return new float[] {Damage, DashCooldown};
+    }
+
+    public override void ApplyScecifications()
+    {
+        GetComponentInParent<Ram>().DashDamage = _damage;
+        GetComponentInParent<Ram>().DashCooldown = _dashCooldown;
     }
 }

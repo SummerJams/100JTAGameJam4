@@ -25,6 +25,12 @@ public class TopDownMovement : MonoBehaviour
     private bool _facingRight = true;
     private float _dashSpeed;
 
+    public float moveSpeed
+    {
+        get => _moveSpeed;
+        set { if (value > 0) _moveSpeed = value; }
+    }
+
     private void Awake()
     {
         PlayerCentralTransform = _centerOfThePlayer;
@@ -75,6 +81,7 @@ public class TopDownMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         float temp = _moveSpeed;
+        _dashSpeed = _moveSpeed * 3;
         _moveSpeed = _dashSpeed;
         _ram.IsDashing = true;
         yield return new WaitForSeconds(_dashDuration);
