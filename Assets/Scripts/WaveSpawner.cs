@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private bool _CardSelectionScreenCreate;
     private Card[] _cards;
     
-    private int _currWave = 1;
+    private int _currWave = 4;
     private int _waveValue;
     private List<GameObject> _enemiesToSpawn = new List<GameObject>();
     private int _livingEnemiesCounter;
@@ -80,11 +80,14 @@ public class WaveSpawner : MonoBehaviour
  
     public void StartNextWave()
     {
+        Debug.Log("StartNextWave");
+        
+        WaveStart.Invoke(_currWave);
         _playerHealth.SetMaxHealth();
         _CardSelectionScreenCreate = false;
         _waveValue = Mathf.RoundToInt(3 * (1 + (0.2f * _currWave))) ;
         GenerateEnemies();
-        WaveStart.Invoke(_currWave);
+        
     }
 
     private void RemoveOneEnemie()
@@ -94,6 +97,7 @@ public class WaveSpawner : MonoBehaviour
     
     public void GenerateEnemies()
     {
+        _currWave += 1;
         List<GameObject> generatedEnemies = new List<GameObject>();
         
         while(_waveValue>0)
