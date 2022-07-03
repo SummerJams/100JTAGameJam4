@@ -363,7 +363,7 @@ MonoBehaviour:
   _spawnInterval: 2
   _enemyParent: {fileID: 1218477983}
   _spawnLocation: {fileID: 416503160}
-  _playerHealth: {fileID: 0}
+  _playerHealth: {fileID: 983652093}
   _CardSelectionScreenPrefab: {fileID: 4212646855202494446, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
   _CardSelectionScreenParent: {fileID: 774928167}
   _CardSelectionScreen: {fileID: 4212646855202494446, guid: eb53630f9cb3752419be93b2d48be95c, type: 3}
