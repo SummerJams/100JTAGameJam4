@@ -18,6 +18,8 @@ public abstract class CartModule : MonoBehaviour
         {
             GenerateSpecifications();
         }
+
+        ApplyScecifications();
     }
 
     protected float GetRandomFactor()
@@ -27,6 +29,7 @@ public abstract class CartModule : MonoBehaviour
 
     public abstract void GenerateSpecifications();
     public abstract float[] GetSpecifications();
+    public abstract void ApplyScecifications();
 
     protected float GetWaveFactor()
     {
