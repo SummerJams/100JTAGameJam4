@@ -2,9 +2,13 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Card : MonoBehaviour
 {
+
+    public UnityEvent CardSelectionScreenClose = new UnityEvent();
+        
     [SerializeField] private TextMeshProUGUI _TMPName;
     [SerializeField] private TextMeshProUGUI[] _TMPStats;
     [SerializeField] private Image _imageModulePreview;
@@ -72,6 +76,7 @@ public class Card : MonoBehaviour
     public void ApplyModule()
     {
         _cart.SwitchModule(_moduleGameObject);
+        CardSelectionScreenClose.Invoke();
         Destroy(_playerPreviewUI.gameObject);
     }
 }
