@@ -6,7 +6,7 @@ public class TurretsModule : CartModule
     [SerializeField] private float _rateOfFireFactor;
 
     private int _baseDamage = 10;
-    private int _baseRateOfFire = 5;
+    private int _baseRateOfFire = 1;
     
     private int _damage;
     public int Damage => _damage;
@@ -18,7 +18,7 @@ public class TurretsModule : CartModule
     {
         _damage = Mathf.RoundToInt(GetRandomFactor() * _damageFactor * _baseDamage * GetWaveFactor());
         
-        _rateOfFire = Mathf.RoundToInt(GetRandomFactor() * _rateOfFireFactor * _baseRateOfFire * GetWaveFactor());
+        _rateOfFire = Mathf.RoundToInt( _rateOfFireFactor / GetRandomFactor() * _baseRateOfFire * GetWaveFactor());
     }
     
     public override float[] GetSpecifications()
