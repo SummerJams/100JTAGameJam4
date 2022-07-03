@@ -5,7 +5,7 @@ public class CartBodyModule : CartModule
     [SerializeField] private float _healthFactor;
     [SerializeField] private float _speedFactor;
 
-    private int _baseHealth = 10;
+    private int _baseHealth = 200;
     private int _baseSpeed = 5;
     
     private int _health;

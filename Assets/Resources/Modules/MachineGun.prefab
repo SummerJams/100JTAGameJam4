@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Machinegun
-  _damageFactor: 0.8
+  _damageFactor: 1.1
   _rateOfFireFactor: 0.3
 --- !u!212 &2228853787613103455
 SpriteRenderer:

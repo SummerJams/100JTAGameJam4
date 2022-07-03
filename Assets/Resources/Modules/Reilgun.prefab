@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Railgun
-  _damageFactor: 4
-  _rateOfFireFactor: 4
+  _damageFactor: 6
+  _rateOfFireFactor: 2
 --- !u!212 &2228853787613103455
 SpriteRenderer:
   m_ObjectHideFlags: 0
