@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Shotgun
-  _damageFactor: 3
+  _damageFactor: 1
   _rateOfFireFactor: 2
 --- !u!212 &2228853787613103455
 SpriteRenderer:
