@@ -21,6 +21,10 @@ public class Health : MonoBehaviour
 
     private void Awake() => _health = _maxHealth;
 
+    public void SetMaxHealth()
+    {
+        _health = _maxHealth;
+    }
     public void TakeDamage(int damage)
     {
         _health -= damage;

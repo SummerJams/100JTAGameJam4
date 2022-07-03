@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private Transform _spawnLocation;
     
     //Переписать
+    [SerializeField] private Health _playerHealth;
     [SerializeField] private GameObject _CardSelectionScreenPrefab;
     [SerializeField] private Transform _CardSelectionScreenParent;
     [SerializeField] private GameObject _CardSelectionScreen;
@@ -79,6 +80,7 @@ public class WaveSpawner : MonoBehaviour
  
     public void StartNextWave()
     {
+        _playerHealth.SetMaxHealth();
         _CardSelectionScreenCreate = false;
         _waveValue = Mathf.RoundToInt(3 * (1 + (0.2f * _currWave))) ;
         GenerateEnemies();

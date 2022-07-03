@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da91fd3afd80654e9c0363f2923b83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
-  _damage: 100
+  _speed: 7
+  _damage: 40
   _attackTime: 0.89
   _deathTime: 0.8
   _attackDistance: 2
