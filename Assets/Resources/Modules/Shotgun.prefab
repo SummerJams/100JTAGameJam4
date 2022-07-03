@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Shotgun
-  _damageFactor: 1
-  _rateOfFireFactor: 1
+  _damageFactor: 3
+  _rateOfFireFactor: 2
 --- !u!212 &2228853787613103455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1145964387
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 5819119952582198149, guid: 7e62de0e90c6a534da25a50533678adc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1145964387
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 50
   m_Sprite: {fileID: 99972337466605833, guid: 49f82b55e2a6a834186d430b573d41f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1145964387
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4403626679814180244, guid: 49f82b55e2a6a834186d430b573d41f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -399,7 +399,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1145964387
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 55
   m_Sprite: {fileID: -986599392365421365, guid: 49f82b55e2a6a834186d430b573d41f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

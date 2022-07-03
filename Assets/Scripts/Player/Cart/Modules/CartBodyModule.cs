@@ -30,5 +30,6 @@ public class CartBodyModule : CartModule
     {
         GetComponentInParent<Health>().MaxHealth = _health;
         GetComponentInParent<TopDownMovement>().moveSpeed = _speed;
+        GetComponentInParent<TopDownMovement>().dashSpeed = _speed * 3;
     }
 }
