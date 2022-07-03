@@ -29,5 +29,6 @@ public class CartBodyModule : CartModule
     public override void ApplyScecifications()
     {
         GetComponentInParent<Health>().MaxHealth = _health;
+        GetComponentInParent<TopDownMovement>().moveSpeed = _speed;
     }
 }

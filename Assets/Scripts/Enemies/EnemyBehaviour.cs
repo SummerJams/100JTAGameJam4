@@ -29,13 +29,11 @@ public abstract class EnemyBehaviour : MonoBehaviour
     {
         animator.SetBool("isRunning", false);
         animator.SetBool("isAttacking", true);
-        _isAttacking = true;
         enemyRigidbody.isKinematic = true;
         yield return new WaitForSeconds(attackTime);
         animator.SetBool("isAttacking", false);
         yield return new WaitForSeconds(timeBetweenAttacks);
         _isAttacking = false;
-        enemyRigidbody.isKinematic = false;
     }
 
     protected void Death()

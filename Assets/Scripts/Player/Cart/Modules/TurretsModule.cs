@@ -28,6 +28,7 @@ public class TurretsModule : CartModule
 
     public override void ApplyScecifications()
     {
-        throw new System.NotImplementedException();
+        GetComponentInChildren<ShootController>().damage = _damage;
+        GetComponentInChildren<ShootController>().shootRate = _rateOfFire;
     }
 }
