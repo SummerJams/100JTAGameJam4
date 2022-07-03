@@ -25,4 +25,10 @@ public class TurretsModule : CartModule
     {
         return new float[] {Damage, RateOfFire};
     }
+
+    public override void ApplyScecifications()
+    {
+        GetComponentInChildren<ShootController>().damage = _damage;
+        GetComponentInChildren<ShootController>().shootRate = _rateOfFire;
+    }
 }

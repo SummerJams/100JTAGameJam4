@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public abstract class ShootController : MonoBehaviour
@@ -16,6 +15,9 @@ public abstract class ShootController : MonoBehaviour
     private bool _isLookRight = true;
 
     private bool _isReadyToShoot => shootTimer > _shootRate;
+
+    public int damage { get => _damage; set { if (value > 0) _damage = value; } }
+    public float shootRate { get => _shootRate; set { if (value > 0) _shootRate = value; } }
 
     private void Awake() => _mainCamera = Camera.main;
 
@@ -65,8 +67,6 @@ public abstract class ShootController : MonoBehaviour
     }
 
     public virtual void Shoot(Transform shootPosition, AudioSource shootSound, int damage) { }
-
     public virtual void Shoot(Transform shootPosition, AudioSource shootSound, int damage, float angle) { }
-
     public virtual void Shoot(AudioSource shootSound, int damage) { }
 }

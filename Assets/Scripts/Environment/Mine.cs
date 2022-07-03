@@ -16,20 +16,19 @@ public class Mine : MonoBehaviour
         _health.Death.AddListener(Explosion);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Explosion();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Health>(out Health health))
         {
             health.TakeDamage(_damage);
         }
+        else if (collision.GetComponentInParent<Health>())
+        {
+            collision.GetComponentInParent<Health>().TakeDamage(_damage);
+        }
     }
 
-    private void Explosion()
+    public void Explosion()
     {
         _animator.SetBool("DoExplosion", true);
 

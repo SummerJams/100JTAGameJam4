@@ -21,7 +21,6 @@ public class MeleeEnemy : EnemyBehaviour
     public override Rigidbody2D enemyRigidbody => _rigidbody;
     public override Animator animator => _animator;
     public override SpriteRenderer sprite => _sprite;
-    public override Health health => _health;
     public override Transform rightPlayerSide => _rightPlayerSide;
     public override Transform leftPlayerSide => _leftPlayerSide;
     public override float speed => _speed;
@@ -32,6 +31,13 @@ public class MeleeEnemy : EnemyBehaviour
     public override float timeBetweenAttacks => _timeBetweenAttacks;
     public override float distanceToPlayerFromSides => _distanceToPlayerFromSides;
 
+    private void Awake()
+    {
+        _health = GetComponent<Health>();
+        _health.Death.AddListener(Death);
+        _health.Damaged.AddListener(WasDamagedHandler);
+    }
+
     private void Start()
     {
         _rightPlayerSide = TopDownMovement.PlayerRightSideTransform;
@@ -39,7 +45,6 @@ public class MeleeEnemy : EnemyBehaviour
 
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _health = GetComponent<Health>();
         _sprite = GetComponent<SpriteRenderer>();
     }
 

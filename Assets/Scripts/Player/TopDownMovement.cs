@@ -12,20 +12,24 @@ public class TopDownMovement : MonoBehaviour
     [SerializeField] private Transform _rightSideOfPlayer;
     [SerializeField] private float _moveSpeed;
     [Header("Dash properties")]
-    [SerializeField] private ParticleSystem _dust;
-    [SerializeField] private TrailRenderer _trail;
-    [SerializeField] private float _dashSpeed;
-    [SerializeField] private float _dashCooldown;
+    [SerializeField] private TrailRenderer _trailEffect;
     [SerializeField] private float _dashDuration;
-    [SerializeField] private bool _turnOnTrail;
+    [SerializeField] private Ram _ram;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Vector2 _movement;
     private Health _health;
-    private float _timer;
+    private float _dashTimer;
     private bool _isAlive = true;
     private bool _facingRight = true;
+    private float _dashSpeed;
+
+    public float moveSpeed
+    {
+        get => _moveSpeed;
+        set { if (value > 0) _moveSpeed = value; }
+    }
 
     private void Awake()
     {
@@ -41,7 +45,6 @@ public class TopDownMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _timer = _dashCooldown;
     }
 
     private void Update()
@@ -51,14 +54,12 @@ public class TopDownMovement : MonoBehaviour
 
         _animator.SetFloat("Speed", _movement.sqrMagnitude);
 
-        _timer -= Time.deltaTime;
+        _dashTimer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && _timer < 0 && _movement != Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _dashTimer < 0 && _movement != Vector2.zero)
         {
             StartCoroutine(Dash());
-            _timer = _dashCooldown;
-            ParticleSystem dust = Instantiate(_dust, transform);
-            Destroy(dust.gameObject, 1f);
+            _dashTimer = _ram.DashCooldown;
         }
 
         if (!_facingRight && _movement.x < 0)
@@ -78,11 +79,14 @@ public class TopDownMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         float temp = _moveSpeed;
+        _dashSpeed = _moveSpeed * 3;
         _moveSpeed = _dashSpeed;
-        if (_turnOnTrail)_trail.emitting = true;
+        _ram.IsDashing = true;
+        _trailEffect.emitting = true;
         yield return new WaitForSeconds(_dashDuration);
-        if (_turnOnTrail) _trail.emitting = false;
+        _ram.IsDashing = false;
         _moveSpeed = temp;
+        _trailEffect.emitting = false;
     }
 
     private void Death()
