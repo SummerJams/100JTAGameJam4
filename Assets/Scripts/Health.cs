@@ -19,7 +19,10 @@ public class Health : MonoBehaviour
     public UnityEvent Damaged = new UnityEvent();
     private bool isAlive = true;
 
-    private void Awake() => _health = _maxHealth;
+    protected virtual void Awake()
+    {
+        _health = _maxHealth; 
+    }
 
     public void SetMaxHealth()
     {

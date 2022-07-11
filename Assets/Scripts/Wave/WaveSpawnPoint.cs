@@ -1,7 +1,6 @@
 using UnityEngine;
-using System;
 
-public class EnemySpawnPoint : MonoBehaviour
+public class WaveSpawnPoint : MonoBehaviour
 {
    [SerializeField] private Transform[] _points;
    private bool _pointIs0;
