@@ -5,13 +5,15 @@ using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
-    
+    [SerializeField] private int _waveValueFactor;
+    [SerializeField] private float _waveValueWaveCountFactor;
     [SerializeField] private float _spawnInterval = 2;
     [SerializeField] private Transform _enemyParent;
     [SerializeField] private Transform _spawnLocation;
     [SerializeField] private List<Enemy> _enemies = new List<Enemy>();
+    
 
-    private int _currentWave = 1;
+    private int _currentWave;
     private int _waveValue;
     private List<GameObject> _enemiesToSpawn = new List<GameObject>();
     private int _livingEnemiesCounter;
@@ -78,8 +80,8 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log("StartWave " + _currentWave);
         
             GlobalEventManager.OnWaveStart.Invoke(_currentWave);
-            Debug.Log(Mathf.RoundToInt(3 * (1 + (0.2f * _currentWave))));
-            _waveValue = Mathf.RoundToInt(3 * (1 + (0.2f * _currentWave)));
+           
+            _waveValue = Mathf.RoundToInt(_waveValueFactor * (1 + (_waveValueWaveCountFactor * _currentWave)));
             GenerateEnemies();
         }
        

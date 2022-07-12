@@ -1,30 +1,41 @@
+using System;
 using UnityEngine;
+using System.Collections;
+using Random = UnityEngine.Random;
+
 
 public class WaveSpawnPoint : MonoBehaviour
 {
-   [SerializeField] private Transform[] _points;
-   private bool _pointIs0;
+   [SerializeField] private Transform _point;
+   [SerializeField] private float _timeOnOnePosition;
+   private float _timeOnOnePositionRemain;
 
-   private void Awake()
+   private void Update()
    {
-      transform.position = _points[0].position;
-      _pointIs0 = true;
-   }
-
-   private void OnBecameVisible()
-   {
-      Debug.Log("OnBecameVisible");
-
-      if (_pointIs0)
+      if (_timeOnOnePositionRemain <= 0)
       {
-         transform.position = _points[1].position;
-         _pointIs0 = false;
+         MoveToNewPosition();
       }
       else
       {
-         transform.position = _points[0].position;
-         _pointIs0 = true;
+         _timeOnOnePositionRemain -= Time.deltaTime;
       }
       
    }
+   
+   
+   private void OnBecameVisible()
+   {
+      Debug.Log("OnBecameVisible");
+      MoveToNewPosition();
+   }
+
+   private void MoveToNewPosition()
+   {
+      transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, Random.Range(-2f, 2f),
+         transform.rotation.w);
+      _timeOnOnePositionRemain = _timeOnOnePosition;
+   }
 }
+
+   
