@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerPreviewUI : MonoBehaviour
+public class PlayerPreviewView : MonoBehaviour
 {
     
     [SerializeField] private Image _ramImage;
@@ -21,7 +21,7 @@ public class PlayerPreviewUI : MonoBehaviour
     
     private void Awake()
     {
-        _player = GetComponentInParent<SceneInfo>().Player;
+        _player = GameManager.Instance.Player;
     }
     
 

@@ -12,7 +12,7 @@ public class StatsPreview : MonoBehaviour
 
     private void Awake()
     {
-        _player = GetComponentInParent<SceneInfo>().Player;
+        _player = GameManager.Instance.Player;
     }
 
     public void DisplayStatСompare(CartModule newModule)
